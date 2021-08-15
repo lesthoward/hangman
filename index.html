@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hangman</title>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic" rel="stylesheet" />
+    <!-- Normalize -->
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css'/>
+    <!-- Style -->
+    <link rel="stylesheet" href="./style.css">
+    <!-- Script -->
+    <script src="./app.js" defer></script>
+    <!-- SEO meta tags -->
+    <meta name="author" content="Lester Howard">
+    <meta name="description" content="Hangman game, guess the word. If you type a wrong letter it will be displayed on the screen and you will see the body parts">
+</head>
+<body>
+    <!-- Dibujar un SVG para el hangman -->
+    <!-- Una línea inicial con y1 20 -->
+    <!-- Seguido por otra en x1 de 140 y bajar y2 a 50 -->
+    <!-- La línea vertical más larga va de x2 de 60 y una y2 de 230 -->
+    <!-- Para la base ubicamos en y de 230 y x1 20 x2 100 -->
+    <!-- === HEAD -->
+    <!-- Un círculo que toma cx 140 cy 70 r 20-->
+    <!-- === BODY -->
+    <!-- x1 140 y1 90 x2 140 y2 150 -->
+    <!-- === ARMS -->
+    <!-- x1 140 y1 120 x2 120 y2 100 -->
+    <!-- x1 140 y1 120 x2 160 y2 100 -->
+    <!-- === LEGS -->
+    <!-- x1 140 yq 150 x2 120 y2 180 -->
+    <!-- x1 140 yq 150 x2 160 y2 180 -->
+    <!-- Todas las partes deben ser ocultas por una clase y colocadas en el orden que van aparecer -->
+    <div class="container">
+        
+        <!-- Info -->
+        <div class="info">
+            <h1 class="info__title">Hangman</h1>
+            <div class="info__description">Enter a key to play</div>    
+        </div>
+        <div class="hangman">
+            <!-- Figure Body -->
+            <svg class="hangman__figure" width="200" height="250">
+                <!-- Rod -->
+                <line x1="60" y1="20" x2="140" y2="20""></line>
+                <line x1="140" y1="20" x2="140" y2="50""></line>
+                <line x1="60" y1="20" x2="60" y2="230""></line>
+                <line x1="20" y1="230" x2="100" y2="230""></line>
+                <!-- Head -->
+                <circle cx="140" cy="70" r="20" class="hangman__parts"></circle>
+                <!-- Body -->
+                <line x1="140" x2="140" y1="90" y2="140" class="hangman__parts"></line>
+                <!-- Arms -->
+                <line x1="115" x2="140" y1="105" y2="120" class="hangman__parts"></line>
+                <line x1="140" x2="165" y1="120" y2="105" class="hangman__parts"></line>
+                <!-- Legs -->
+                <line x1="140" y1="140" x2="120" y2="180" class="hangman__parts"></line>
+                <line x1="140" y1="140" x2="160" y2="180" class="hangman__parts"></line>
+            </svg>
+            <!-- Wron Letters -->
+            <div class="hangman__wrong">
+                <!-- <p class="hangman__wrongparagraph">Wrong</p> -->
+                <!-- <span class="hangman__wrongletters">x, w, z</span> -->
+            </div>
+            
+            <!-- Correct Word -->
+            <div class="hangman__word">
+                <!-- <span class="hangman__letters">h</span>
+                <span class="hangman__letters">e</span>
+                <span class="hangman__letters">l</span>
+                <span class="hangman__letters">l</span>
+                <span class="hangman__letters">o</span> -->
+            </div>
+
+        </div>
+        <!-- Final Message -->
+        <div class="hangman__popup">
+            <div class="hangman__message">
+                <p class="hanngman__status"></p>
+                <button class="hangman__again">Play again</button>
+            </div>
+        </div>
+        <!-- Notification -->
+        <div class="hangman__notification">
+            <p class="hangman__already">You have already entered this letter.</p>
+        </div>
+    </div>
+</body>
+</html>
